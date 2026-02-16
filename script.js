@@ -32,6 +32,7 @@ document.querySelector(".btn.check").addEventListener("click", function () {
     }
 
     document.querySelector(".highscore").textContent = highScore;
+    document.querySelector(".check").disabled = true;
   } else if (guess !== secretNumber) {
     if (score > 1) {
       document.querySelector(".message").textContent =
