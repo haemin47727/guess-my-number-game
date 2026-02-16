@@ -32,7 +32,7 @@ document.querySelector(".btn.check").addEventListener("click", function () {
     }
 
     document.querySelector(".highscore").textContent = highScore;
-    document.querySelector(".check").disabled = true;
+    document.querySelector(".btn.check").disabled = true;
   } else if (guess !== secretNumber) {
     if (score > 1) {
       document.querySelector(".message").textContent =
@@ -44,7 +44,7 @@ document.querySelector(".btn.check").addEventListener("click", function () {
     } else {
       document.querySelector(".message").textContent = "Game Over!";
       document.querySelector(".score").textContent = 0;
-      document.querySelector(".check").disabled = true;
+      document.querySelector(".btn.check").disabled = true;
     }
   }
 });
@@ -53,7 +53,7 @@ document.querySelector(".btn.check").addEventListener("click", function () {
 document.querySelector(".btn.again").addEventListener("click", function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20 + 1);
-  document.querySelector(".check").disabled = false;
+  document.querySelector(".btn.check").disabled = false;
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".number").style.width = "15rem";
   document.querySelector(".number").textContent = "?";
