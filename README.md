@@ -1,2 +1,2 @@
-# guess-my-number-game
-This is part of Javascript. 
+Play the guessing game with me!
+#Javascript
