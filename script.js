@@ -36,8 +36,8 @@ document.querySelector(".btn.check").addEventListener("click", function () {
     if (score > 1) {
       document.querySelector(".message").textContent =
         guess > secretNumber
-          ? "Guess is higher than the number!"
-          : "Guess is lower than the number!";
+          ? "Number is lower than your guess!"
+          : "Number is higher than your guess!";
       score--;
       document.querySelector(".score").textContent = score;
     } else {
