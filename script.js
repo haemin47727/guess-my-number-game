@@ -12,18 +12,26 @@ let secretNumber = Math.trunc(Math.random() * 20 + 1);
 let score = 20;
 let highScore = 0;
 
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
+
 document.querySelector(".btn.check").addEventListener("click", function (e) {
   e.preventDefault();
   const guess = Number(document.querySelector(".guess").value);
   console.log(guess);
 
   if (!guess) {
-    document.querySelector(".message").textContent = "😡 No number!";
+    // document.querySelector(".message").textContent = "😡 No number!";
+    displayMessage("😡 No number!");
   } else if (guess < 1 || guess > 20) {
-    document.querySelector(".message").textContent =
-      "🚫 Number must be between 1 and 20!";
+    // document.querySelector(".message").textContent =
+    //   "🚫 Number must be between 1 and 20!";
+    displayMessage("🚫 Number must be between 1 and 20!");
   } else if (guess === secretNumber) {
-    document.querySelector(".message").textContent = "😊 Correct number!";
+    // document.querySelector(".message").textContent = "😊 Correct number!";
+    displayMessage("😊 Correct number!");
+
     document.querySelector(".number").textContent = secretNumber;
     document.querySelector("body").style.backgroundColor = "#60b347";
     document.querySelector(".number").style.width = "30rem";
@@ -36,14 +44,20 @@ document.querySelector(".btn.check").addEventListener("click", function (e) {
     document.querySelector(".btn.check").disabled = true;
   } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent =
+      // document.querySelector(".message").textContent =
+      //   guess > secretNumber
+      //     ? "Number is lower than your guess!"
+      //     : "Number is higher than your guess!";
+      displayMessage(
         guess > secretNumber
           ? "Number is lower than your guess!"
-          : "Number is higher than your guess!";
+          : "Number is higher than your guess!",
+      );
       score--;
       document.querySelector(".score").textContent = score;
     } else {
-      document.querySelector(".message").textContent = "Game Over!";
+      // document.querySelector(".message").textContent = "Game Over!";
+      displayMessage("Game Over!");
       document.querySelector(".score").textContent = 0;
       document.querySelector(".btn.check").disabled = true;
     }
@@ -59,6 +73,7 @@ document.querySelector(".btn.again").addEventListener("click", function () {
   document.querySelector(".number").style.width = "15rem";
   document.querySelector(".number").textContent = "?";
   document.querySelector(".score").textContent = score;
-  document.querySelector(".message").textContent = "Start guessing...";
+  // document.querySelector(".message").textContent = "Start guessing...";
+  displayMessage("Start guessing...");
   document.querySelector(".guess").value = "";
 });
